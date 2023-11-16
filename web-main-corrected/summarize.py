@@ -1,7 +1,7 @@
 import openai
 
 # Directly assign your actual API key here
-api_key = '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'
+api_key = ''
 
 client = openai.OpenAI(api_key=api_key)
 
