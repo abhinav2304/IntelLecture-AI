@@ -30,9 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Append the submitted question to the file
         file_put_contents($filepath, $question . PHP_EOL, FILE_APPEND);
 
-        // Call the Python summarization script and get the summary
-        $summary = get_summary('summarize.py', ''); // Use your actual API key and make sure it's kept secure
-
+        
         
     // Redirect back to the form after saving the question
     }

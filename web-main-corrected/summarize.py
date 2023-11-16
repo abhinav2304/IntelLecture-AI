@@ -9,7 +9,7 @@ def summarize_questions(file_path='data/questions.txt'):
     with open(file_path, 'r', encoding='utf-8') as file:
         file_content = file.read()
 
-    prompt_text = "The following are questions from students from a lecture. correct the sentence formation if needed. translate to english if there are any questions from other languages.Summarize them into bullet points:\n\n" + file_content
+    prompt_text = "The following are questions from students from a lecture,correct the sentence formation if needed,translate to english if there are any questions from other languages,Summarize them into bullet points:\n\n" + file_content
 
     # Correcting the API call by using 'model' instead of 'engine'
     response = client.completions.create(model="gpt-3.5-turbo-instruct", prompt=prompt_text,

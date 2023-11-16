@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label, textarea, input[type=submit] {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        #python-output {
+            white-space: pre-line;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
     <h1>Question Submission</h1>
@@ -12,26 +44,20 @@
         <textarea id="question" name="question" rows="4" cols="50" required></textarea><br>
         <input type="submit" value="Submit Question">
     </form>
-   
+
+    <!-- Output Section -->
+    <div id="python-output">Loading...</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            // Making an AJAX request to display_output.php
+            fetch('display_output.php')
+            .then(response => response.text())
+            .then(data => {
+                // Displaying the data
+                document.getElementById('python-output').innerHTML = data;
+            });
+        });
+    </script>
 </body>
 </html>
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        // Making an AJAX request to display_output.php
-        fetch('display_output.php')
-        .then(response => response.text())
-        .then(data => {
-            // Displaying the data
-            document.getElementById('python-output').innerHTML = data;
-        });
-    });
-    </script>
-    
-    <!-- Place this where you want to display the output -->
-    <div id="python-output">Loading...</div>
-    <style>
-        #python-output {
-            white-space: pre-line; /* This ensures line breaks in the text are honored */
-        }
-        </style>
-        
