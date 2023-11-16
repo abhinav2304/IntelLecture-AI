@@ -3,58 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Question Submission</title>
+    <title>Question Submission 🚀</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f2;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            animation: fadeIn 1s;
         }
 
         h1 {
-            color: #333;
+            color: #5C6BC0;
+            margin-bottom: 20px;
         }
 
         form {
             margin-top: 20px;
         }
 
-        label, textarea, input[type=submit] {
-            font-size: 1em;
-            margin-bottom: 10px;
+        textarea, input[type=submit] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            background-color: #5C6BC0;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #3F51B5;
         }
 
         #python-output {
             white-space: pre-line;
+            text-align: left;
+            margin-top: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
             padding: 20px;
-            margin-top: 20px;
-            display: inline-block;
-            text-align: left;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <h1>Question Submission</h1>
-    <form action="submit_question.php" method="post">
-        <label for="question">Your Question:</label><br>
-        <textarea id="question" name="question" rows="4" cols="50" required></textarea><br>
-        <input type="submit" value="Submit Question">
-    </form>
-
-    <!-- Output Section -->
-    <div id="python-output">Loading...</div>
+    <div class="container">
+        <h1>Question Submission 🤔</h1>
+        <form action="submit_question.php" method="post">
+            <textarea id="question" name="question" rows="4" placeholder="Enter your question here... 🖊️" required></textarea>
+            <input type="submit" value="Submit Question 📤">
+        </form>
+        <div id="python-output">Loading... ⏳</div>
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-            // Making an AJAX request to display_output.php
             fetch('display_output.php')
             .then(response => response.text())
             .then(data => {
-                // Displaying the data
                 document.getElementById('python-output').innerHTML = data;
             });
         });
