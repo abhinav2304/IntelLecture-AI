@@ -6,11 +6,32 @@
     <title>Question Submission</title>
 </head>
 <body>
-    <h1>Mid-Lecture Question Submission</h1>
+    <h1>Question Submission</h1>
     <form action="submit_question.php" method="post">
         <label for="question">Your Question:</label><br>
         <textarea id="question" name="question" rows="4" cols="50" required></textarea><br>
         <input type="submit" value="Submit Question">
     </form>
+   
 </body>
 </html>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // Making an AJAX request to display_output.php
+        fetch('display_output.php')
+        .then(response => response.text())
+        .then(data => {
+            // Displaying the data
+            document.getElementById('python-output').innerHTML = data;
+        });
+    });
+    </script>
+    
+    <!-- Place this where you want to display the output -->
+    <div id="python-output">Loading...</div>
+    <style>
+        #python-output {
+            white-space: pre-line; /* This ensures line breaks in the text are honored */
+        }
+        </style>
+        

@@ -1,7 +1,7 @@
 import openai
 
 # Directly assign your actual API key here
-api_key = ''
+api_key = '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'
 
 client = openai.OpenAI(api_key=api_key)
 
@@ -24,3 +24,8 @@ def summarize_questions(file_path='data/questions.txt'):
 # Call the function and print the summary
 summary = summarize_questions()
 print(summary)
+# ... existing summarize.py code ...
+
+# Save the output to a file
+with open('output.txt', 'w') as file:
+    file.write(summary)
