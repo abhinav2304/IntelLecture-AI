@@ -17,7 +17,7 @@ This project offers a dynamic way to enhance student engagement during lectures.
 2. **Navigate to the project directory**: `cd [project-directory]`.
 3. **Start the Local Server**: Run `php -S localhost:8000` to initiate the local web server.
 4. **Access the Portal**: Open a web browser and visit `http://localhost:8000` to access the submission portal.
-    Note: you'd want GPT API to make it work and have to insert in summarize.py file.
+    Note: you'd want GPT API key to make it work and have to insert in summarize.py file.
 ## Usage
 - **Submitting Questions**: Students can visit the portal during the lecture to submit their questions.
 - **Running the Summarization Script**: After collecting questions, run the `summarize.py` script to generate a summary using the GPT API.
